@@ -1,0 +1,20 @@
+<template>
+    <!--fetch record in read only mode-->
+        <lightning-record-view-form object-api-name={objectApiName} record-id={recordId}>
+            <lightning-output-field field-name="Name"></lightning-output-field>
+            <lightning-output-field field-name="Truck_Booking__c"></lightning-output-field>
+            <lightning-output-field field-name="Amount__c"></lightning-output-field>
+            
+        </lightning-record-view-form>
+    <!--to edit a record use record-id to create a new record don't use it-->
+    <!--fetch record in edit mode-->
+        <lightning-record-edit-form 
+        object-api-name = {objectApiName}
+        record-id = {recordId}
+        onsubmit = {handleSubmit}  > 
+        <lightning-input-field field-name="Payment_Mode__c"></lightning-input-field>
+        
+        <lightning-button label = "Update" type = "submit"></lightning-button>
+    </lightning-record-edit-form>
+    
+    </template>

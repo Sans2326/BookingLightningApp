@@ -1,0 +1,23 @@
+<template>
+    <lightning-tabset variant="scoped">
+      <lightning-tab label="Gallery">
+        <template if:true={trucks}>
+          <div class="slds-scrollable_y">
+            <!-- layout horizontally aligned to the center  -->
+            <!-- layout allowing multiple rows -->
+            <lightning-layout horizontal-align="center" multiple-rows>
+              <!-- template looping through each truck -->
+              <template for:each={trucks} for:item="truck">
+                <!-- lightning-layout-item for each truck -->
+                <lightning-layout-item key={truck.Id} padding="around-small" size="10" small-device-size="6" medium-device-size="4" large-device-size="4">
+                  <!-- Each TruckTile goes here -->
+                  <c-truck-tile truck={truck} ontruckselect={updateSelectedTile} selected-truck-id={selectedTruckId}></c-truck-tile>
+                </lightning-layout-item>
+              </template>
+            </lightning-layout>
+          </div>
+        </template>
+      </lightning-tab>
+      
+    </lightning-tabset>
+  </template>

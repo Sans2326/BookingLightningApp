@@ -1,0 +1,23 @@
+<template>
+    <lightning-layout multiple-rows>
+        <!-- Top -->
+        <lightning-layout-item size="12">
+            <lightning-card title="Find a Truck">    
+                <p class="slds-var-p-horizontal_small">
+                    <!-- truckSearchForm component goes here -->
+                    <c-truck-search-form onsearch={searchTrucks}></c-truck-search-form>
+                </p>
+            </lightning-card>
+        </lightning-layout-item>
+        <!-- Bottom -->
+        <lightning-layout-item size="12" class="slds-p-top_small slds-is-relative">
+            
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" variant="brand"></lightning-spinner>
+            </template>
+            <!-- truckSearchResults goes here -->
+            <c-truck-search-results onloading={handleLoading} ondoneloading={handleDoneLoading}></c-truck-search-results>
+            
+        </lightning-layout-item>
+    </lightning-layout>
+</template>  

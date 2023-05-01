@@ -1,0 +1,23 @@
+<template>
+    <template if:false={wiredRecord.data}>
+        <lightning-card>
+            <!-- lightning card for the label when wiredRecord has no data goes here  -->
+            <span class="slds-align_absolute-center no-truck-height">{label.labelPleaseSelectATruck}</span>
+        </lightning-card>
+    </template>
+    <template if:true={wiredRecord.data}>
+        <lightning-tabset variant="scoped">
+            <lightning-tab label={label.labelDetails}>
+                <lightning-card title={truckName} icon-name={detailsTabIconName}>
+                    <lightning-button label={label.labelFullDetails} onclick={navigateToRecordViewPage} slot="actions"></lightning-button>
+                    <lightning-button label="Book This Truck" onclick={createNewBooking} slot="actions"></lightning-button>
+                    <lightning-record-view-form record-id={truckId} object-api-name='Truck__c' density='compact'>
+                        <lightning-output-field field-name="Truck_Type__r.Name"></lightning-output-field>
+                        <lightning-output-field field-name="Cost__c"></lightning-output-field>
+                    </lightning-record-view-form>
+                </lightning-card>
+            </lightning-tab>
+        </lightning-tabset>
+        <!-- lightning card for the content when wiredRecord has data goes here  -->
+    </template>
+</template>  

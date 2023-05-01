@@ -1,0 +1,22 @@
+<template>
+    <!--fetch record in read only mode-->
+        <lightning-record-view-form object-api-name={objectApiName} record-id={recordId}>
+            <lightning-output-field field-name="Name"></lightning-output-field>
+            <lightning-output-field field-name="Pickup_Point__c"></lightning-output-field>
+            <lightning-output-field field-name="Drop_Point__c"></lightning-output-field>
+            <lightning-output-field field-name="Journey_Date__c"></lightning-output-field>
+            <lightning-output-field field-name="JourneyCost__c"></lightning-output-field>
+            
+        </lightning-record-view-form>
+    <!--to edit a record use record-id to create a new record don't use it-->
+    <!--fetch record in edit mode-->
+        <lightning-record-edit-form 
+        object-api-name = {objectApiName}
+        record-id = {recordId}
+        onsubmit = {handleSubmit}  > 
+        <lightning-input-field field-name="Booking_Status__c"></lightning-input-field>
+        
+        <lightning-button label = "Update" type = "submit"></lightning-button>
+    </lightning-record-edit-form>
+    
+    </template>
